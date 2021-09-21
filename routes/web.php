@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/products', function () {
     return view('welcome');
 });
 
-Route::get('/products', function () {
+Route::get('/', function () {
     $products = \App\Models\Product::all()->sortBy(['created_at', 'updated_at']);
 
     return response()->view('products', ['products' => $products], 200);
